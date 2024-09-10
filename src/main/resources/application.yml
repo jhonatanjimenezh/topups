@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /top-up-service
+
+spring:
+  application:
+    name: top-up-service
+    title: top-up-service
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    platform: h2
+    initialize: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # se puede cambiar a create-drop si prefieres que la base de datos se elimine y recree cada vez que reinicias
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: TRACE
+
+
